@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { data } from "./data/firstLevel";
+// import { data } from "./data/firstLevel";
+import { data } from "./data/queens";
 import { Column } from "./components/Column";
 import { DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
