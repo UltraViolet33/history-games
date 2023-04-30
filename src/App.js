@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { data } from "./data/kings";
 import { queens } from "./data/queens";
 import { kings } from "./data/kings";
 import { Column } from "./components/Column";
@@ -24,7 +23,6 @@ const Content = styled.div`
 export const App = () => {
   const [gameWon, setGameWon] = useState(false);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-
   const [data, setData] = useState(kings);
 
   const newKings = () => {
@@ -122,7 +120,6 @@ export const App = () => {
 
   const checkWon = newColumn => {
     const validOrder = data.columns["column-1"].kingsIds;
-
     const column = state.columns["column-1"];
     const newKingIds = Array.from(column.kingsIds);
 
@@ -196,7 +193,6 @@ export const App = () => {
           Drag and drop les rois de France dans le bon ordre ! La case devient
           verte si elle est à la bonne place.
         </p>
-
         <p>
           Si un <IoIosArrowDown /> s'affiche une description est disponible
         </p>
