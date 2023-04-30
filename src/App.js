@@ -1,10 +1,12 @@
-import { useState } from "react";
-// import { data } from "./data/firstLevel";
-import { data } from "./data/queens";
+import { useEffect, useState } from "react";
+// import { data } from "./data/kings";
+import { queens } from "./data/queens";
+import { kings } from "./data/kings";
 import { Column } from "./components/Column";
 import { DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
+import "./App.css";
 
 const Header = styled.header`
   margin: 10px;
@@ -21,6 +23,9 @@ const Content = styled.div`
 
 export const App = () => {
   const [gameWon, setGameWon] = useState(false);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  const [data, setData] = useState(kings);
 
   const newKings = () => {
     const kings = {};
@@ -44,6 +49,23 @@ export const App = () => {
       },
     },
   });
+
+  useEffect(() => {
+    setGameWon(false);
+    setState({
+      ...data,
+      kings: newKings(),
+      columns: {
+        ...data.columns,
+        "column-1": {
+          ...data.columns["column-1"],
+          kingsIds: data.columns["column-1"].kingsIds.sort(
+            (a, b) => 0.5 - Math.random()
+          ),
+        },
+      },
+    });
+  }, [data]);
 
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
@@ -118,6 +140,56 @@ export const App = () => {
 
   return (
     <>
+      <nav className="navigation">
+        <a href="/" className="brand-name">
+          History Games
+        </a>
+        <button
+          className="hamburger"
+          onClick={() => {
+            console.log(isNavExpanded);
+            setIsNavExpanded(!isNavExpanded);
+          }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="white">
+            <path
+              fillRule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          className={
+            isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
+          }>
+          <ul>
+            <li>
+              <a
+                onClick={() => {
+                  setData(kings);
+
+                  console.log(data);
+                }}>
+                Rois de France
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  setData(queens);
+
+                  console.log(data);
+                }}>
+                Reines de France
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <Header>
         <h2>Remets les rois dans le bon ordre !</h2>
         <p>

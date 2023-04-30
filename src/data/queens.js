@@ -1,4 +1,4 @@
-export const data = {
+export const queens = {
   kings: {
     1: {
       id: "1",
