@@ -134,7 +134,7 @@ export const App = () => {
         </p>
         {gameWon ? <h3>Gagné !</h3> : ""}
       </div>
-      <content className="content">
+      <div className="content">
         <DragDropContext onDragEnd={onDragEnd}>
           {state.columnOrder.map(columnId => {
             const column = state.columns[columnId];
@@ -144,7 +144,7 @@ export const App = () => {
             return <Column key={column.id} column={column} list={characters} />;
           })}
         </DragDropContext>
-      </content>
+      </div>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { King } from "./King";
+import { Character } from "./Character";
 import { Droppable } from "react-beautiful-dnd";
 
 export const Column = ({ column, list }) => {
@@ -14,10 +14,13 @@ export const Column = ({ column, list }) => {
                 : "is-not-dragging padding"
             }
             ref={provided.innerRef}
-            {...provided.droppableProps}
-            isDraggingOver={snapshot.isDraggingOver}>
-            {list.map((king, index) => (
-              <King key={king.id} king={king} index={index} />
+            {...provided.droppableProps}>
+            {list.map((character, index) => (
+              <Character
+                key={character.id}
+                character={character}
+                index={index}
+              />
             ))}
             {provided.placeholder}
           </div>
