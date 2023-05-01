@@ -34,6 +34,7 @@ export const Header = ({ setData }) => {
             <a
               onClick={() => {
                 setData("kings");
+                setIsNavExpanded(false);
               }}>
               Rois de France
             </a>
@@ -42,6 +43,7 @@ export const Header = ({ setData }) => {
             <a
               onClick={() => {
                 setData("queens");
+                setIsNavExpanded(false);
               }}>
               Reines de France
             </a>
