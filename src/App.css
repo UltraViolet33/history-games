@@ -147,6 +147,10 @@
   background-color: lightgreen;
 }
 
+.character-good-index {
+  background-color: lightgreen;
+}
+
 .character-header {
   display: flex;
   justify-content: space-between;

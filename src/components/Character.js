@@ -1,5 +1,5 @@
 import { Draggable } from "react-beautiful-dnd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export const Character = ({ character, index }) => {
@@ -22,6 +22,11 @@ export const Character = ({ character, index }) => {
     }
   };
 
+  useEffect(() => {
+    setIsDisplayed(false);
+    setTransition(false);
+  }, [character]);
+
   return (
     <Draggable draggableId={character.id} index={index}>
       {(provided, snapshot) => (
@@ -29,6 +34,8 @@ export const Character = ({ character, index }) => {
           className={
             snapshot.isDragging
               ? "is-dragged character-container"
+              : character.isGoodIndex
+              ? "character-good-index character-container"
               : "character-container"
           }
           {...provided.dragHandleProps}
