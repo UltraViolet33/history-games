@@ -138,10 +138,10 @@ export const App = () => {
         <DragDropContext onDragEnd={onDragEnd}>
           {state.columnOrder.map(columnId => {
             const column = state.columns[columnId];
-            const kings = column.charactersIds.map(
-              kingId => state.characters[kingId]
+            const characters = column.charactersIds.map(
+              characterId => state.characters[characterId]
             );
-            return <Column key={column.id} column={column} kings={kings} />;
+            return <Column key={column.id} column={column} list={characters} />;
           })}
         </DragDropContext>
       </content>

@@ -113,3 +113,22 @@
   display: flex;
   justify-content: center;
 }
+
+.container-list {
+  margin: 12px;
+  width: 650px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+}
+
+.padding {
+  padding: 8px;
+}
+
+.is-dragging {
+  background-color: skyblue;
+}
+
+.is-not-dragging {
+  background-color: white;
+}
