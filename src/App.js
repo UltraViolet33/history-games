@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import { queens } from "./data/queens";
-import { kings } from "./data/kings";
-import { Column } from "./components/Column";
-import { DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
+import { DragDropContext } from "react-beautiful-dnd";
+import { useEffect, useState } from "react";
+import { Header } from "./components/Header";
+import { Column } from "./components/Column";
+import { queens } from "./data/queens";
+import { kings } from "./data/kings";
 import "./App.css";
 
-const Header = styled.header`
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
+
+// const Header = styled.header`
+//   margin: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+// `;
 
 const Content = styled.div`
   display: flex;
@@ -21,6 +23,7 @@ const Content = styled.div`
 `;
 
 export const App = () => {
+
   const [gameWon, setGameWon] = useState(false);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [data, setData] = useState(kings);
@@ -30,7 +33,6 @@ export const App = () => {
     for (const [key, value] of Object.entries(data.kings)) {
       kings[key] = { ...value, isGoodIndex: false };
     }
-
     return kings;
   };
 
@@ -137,14 +139,14 @@ export const App = () => {
 
   return (
     <>
-      <nav className="navigation">
+    <Header/>
+      {/* <nav className="navigation">
         <a href="/" className="brand-name">
           History Games
         </a>
         <button
           className="hamburger"
           onClick={() => {
-            console.log(isNavExpanded);
             setIsNavExpanded(!isNavExpanded);
           }}>
           <svg
@@ -186,8 +188,8 @@ export const App = () => {
             </li>
           </ul>
         </div>
-      </nav>
-      <Header>
+      </nav> */}
+      {/* <Header>
         <h2>Remets les rois dans le bon ordre !</h2>
         <p>
           Drag and drop les rois de France dans le bon ordre ! La case devient
@@ -197,7 +199,7 @@ export const App = () => {
           Si un <IoIosArrowDown /> s'affiche une description est disponible
         </p>
         {gameWon ? <h3>Gagné !</h3> : ""}
-      </Header>
+      </Header> */}
       <Content>
         <DragDropContext onDragEnd={onDragEnd}>
           {state.columnOrder.map(columnId => {
