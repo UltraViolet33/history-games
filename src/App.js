@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useEffect, useState } from "react";
@@ -7,11 +6,6 @@ import { Column } from "./components/Column";
 import { queens } from "./data/queens";
 import { kings } from "./data/kings";
 import "./App.css";
-
-const Content = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 
 export const App = () => {
   const [gameWon, setGameWon] = useState(false);
@@ -25,22 +19,22 @@ export const App = () => {
     }
   };
 
-  const newKings = () => {
-    const kings = {};
-    for (const [key, value] of Object.entries(data.kings)) {
-      kings[key] = { ...value, isGoodIndex: false };
+  const newCharacters = () => {
+    const characters = {};
+    for (const [key, value] of Object.entries(data.characters)) {
+      characters[key] = { ...value, isGoodIndex: false };
     }
-    return kings;
+    return characters;
   };
 
   const [state, setState] = useState({
     ...data,
-    kings: newKings(),
+    characters: newCharacters(),
     columns: {
       ...data.columns,
       "column-1": {
         ...data.columns["column-1"],
-        kingsIds: data.columns["column-1"].kingsIds.sort(
+        charactersIds: data.columns["column-1"].charactersIds.sort(
           (a, b) => 0.5 - Math.random()
         ),
       },
@@ -49,15 +43,14 @@ export const App = () => {
 
   useEffect(() => {
     setGameWon(false);
-    
     setState({
       ...data,
-      kings: newKings(),
+      characters: newCharacters(),
       columns: {
         ...data.columns,
         "column-1": {
           ...data.columns["column-1"],
-          kingsIds: data.columns["column-1"].kingsIds.sort(
+          charactersIds: data.columns["column-1"].charactersIds.sort(
             (a, b) => 0.5 - Math.random()
           ),
         },
@@ -80,29 +73,29 @@ export const App = () => {
     }
 
     const column = state.columns[source.droppableId];
-    const newKingIds = Array.from(column.kingsIds);
+    const newCharactersIds = Array.from(column.charactersIds);
 
-    newKingIds.splice(source.index, 1);
-    newKingIds.splice(destination.index, 0, draggableId);
+    newCharactersIds.splice(source.index, 1);
+    newCharactersIds.splice(destination.index, 0, draggableId);
 
     const newColumn = {
       ...column,
-      kingsIds: newKingIds,
+      charactersIds: newCharactersIds,
     };
 
-    const newKings = state.kings;
+    const newCharacters = state.characters;
 
-    for (const index in newKingIds) {
-      if (index == newKingIds[index] - 1) {
-        newKings[newKingIds[index]].isGoodIndex = true;
+    for (const index in newCharactersIds) {
+      if (index == newCharactersIds[index] - 1) {
+        newCharacters[newCharactersIds[index]].isGoodIndex = true;
       } else {
-        newKings[newKingIds[index]].isGoodIndex = false;
+        newCharacters[newCharactersIds[index]].isGoodIndex = false;
       }
     }
 
     const newState = {
       ...state,
-      kings: newKings,
+      characters: newCharacters,
       columns: {
         ...state.columns,
         [newColumn.id]: newColumn,
@@ -119,16 +112,8 @@ export const App = () => {
   };
 
   const checkWon = newColumn => {
-    const validOrder = data.columns["column-1"].kingsIds;
-    const column = state.columns["column-1"];
-    const newKingIds = Array.from(column.kingsIds);
-
-    console.log(newColumn.kingsIds);
-    console.log(validOrder);
-    for (const index in newColumn.kingsIds) {
-      console.log(index);
-      console.log(newColumn.kingsIds[index]);
-      if (index != newColumn.kingsIds[index] - 1) {
+    for (const index in newColumn.charactersIds) {
+      if (index != newColumn.charactersIds[index] - 1) {
         return false;
       }
     }
@@ -149,15 +134,17 @@ export const App = () => {
         </p>
         {gameWon ? <h3>Gagné !</h3> : ""}
       </div>
-      <Content>
+      <content className="content">
         <DragDropContext onDragEnd={onDragEnd}>
           {state.columnOrder.map(columnId => {
             const column = state.columns[columnId];
-            const kings = column.kingsIds.map(kingId => state.kings[kingId]);
+            const kings = column.charactersIds.map(
+              kingId => state.characters[kingId]
+            );
             return <Column key={column.id} column={column} kings={kings} />;
           })}
         </DragDropContext>
-      </Content>
+      </content>
     </>
   );
 };

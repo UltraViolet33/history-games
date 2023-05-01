@@ -1,5 +1,5 @@
 export const queens = {
-  kings: {
+  characters: {
     1: {
       id: "1",
       name: "Clotilde",
@@ -78,8 +78,8 @@ export const queens = {
   columns: {
     "column-1": {
       id: "column-1",
-      title: "Les Principaux Rois de France",
-      kingsIds: [1, 2, 3, 4, 5, 6, 7, 8],
+      title: "Les Principales Reines de France",
+      charactersIds: [1, 2, 3, 4, 5, 6, 7, 8],
     },
   },
   columnOrder: ["column-1"],
