@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Header = () => {
+export const Header = ({ setData }) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -33,7 +33,7 @@ export const Header = () => {
           <li>
             <a
               onClick={() => {
-                // setData(kings);
+                setData("kings");
               }}>
               Rois de France
             </a>
@@ -41,7 +41,7 @@ export const Header = () => {
           <li>
             <a
               onClick={() => {
-                // setData(queens);
+                setData("queens");
               }}>
               Reines de France
             </a>
