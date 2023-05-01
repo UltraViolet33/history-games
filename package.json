@@ -1,7 +1,7 @@
 {
-  "name": "rois-de-france",
+  "name": "history-games",
   "version": "0.1.0",
-  "homepage": "https://github-UltraViolet33.github.io/Rois-de-France",
+  "homepage": "https://github-UltraViolet33.github.io/History-Games",
   "private": true,
   "dependencies": {
     "@atlaskit/css-reset": "^6.4.0",
