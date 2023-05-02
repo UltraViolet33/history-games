@@ -1,5 +1,5 @@
 export const queens = {
-  characters: {
+  elements: {
     1: {
       id: "1",
       name: "Clotilde",
@@ -79,7 +79,7 @@ export const queens = {
     "column-1": {
       id: "column-1",
       title: "Les Principales Reines de France",
-      charactersIds: [1, 2, 3, 4, 5, 6, 7, 8],
+      elementsIds: [1, 2, 3, 4, 5, 6, 7, 8],
     },
   },
   columnOrder: ["column-1"],
