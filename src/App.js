@@ -8,6 +8,7 @@ import { kings } from "./data/kings";
 import "./App.css";
 
 export const App = () => {
+  console.log("ok");
   const [gameWon, setGameWon] = useState(false);
   const [data, setData] = useState(kings);
 
