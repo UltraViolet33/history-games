@@ -132,7 +132,7 @@
   background-color: white;
 }
 
-.character-container {
+.element-container {
   border: 1px solid lightgrey;
   border-radius: 2px;
   margin-bottom: 8px;
@@ -147,16 +147,16 @@
   background-color: lightgreen;
 }
 
-.character-good-index {
+.element-good-index {
   background-color: lightgreen;
 }
 
-.character-header {
+.element-header {
   display: flex;
   justify-content: space-between;
 }
 
-.character-name {
+.element-name {
   flex: 2;
 }
 
