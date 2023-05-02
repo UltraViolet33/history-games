@@ -128,10 +128,13 @@ export const App = () => {
     <>
       <Header setData={setStateData} />
       <div className="top">
-        <h2>Remets les personnages historiques dans le bon ordre !</h2>
+        <h2>
+          Remets les personnages ou les batailles historiques dans le bon ordre
+          !
+        </h2>
         <p>
-          Drag and drop les personnages dans le bon ordre ! La case devient
-          verte si elle est à la bonne place.
+          Drag and drop les cases dans l'ordre chronologique ! La case
+          devient verte si elle est à la bonne place.
         </p>
         <p>
           Si un <IoIosArrowDown /> s'affiche une description est disponible.

@@ -6,9 +6,6 @@ export const Header = ({ setData }) => {
 
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
-        History Games
-      </a>
       <button
         className="hamburger"
         onClick={() => {
