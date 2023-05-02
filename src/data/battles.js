@@ -4,7 +4,8 @@ export const battles = {
       id: "1",
       name: "Bataille de Poitiers",
       imageLink:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bataille_de_Poitiers_en_Octobre_732.jpg/800px-Bataille_de_Poitiers_en_Octobre_732.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e7/Steuben_-_Bataille_de_Poitiers.png",
+      descImg: "Bataille de Poitiers, tableau de Charles de Steuben (1837)",
       date: "25 octobre 732",
       description:
         "La bataille de Poitiers oppose les troupes du maire du palais Charles Martel, futur fondateur de la dynastie carolingienne, aux forces musulmanes d'Abd al-Rahman ibn Abd Allah al-Ghafiqi, lors de l'invasion de l'Aquitaine par le califat omeyyade. La victoire des Francs marque un coup d'arrêt à la progression de l'expansion musulmane en Europe occidentale.",
@@ -13,7 +14,9 @@ export const battles = {
       id: "2",
       name: "Bataille de Roncevaux",
       imageLink:
-        "https://upload.wikimedia.org/wikipedia/commons/6/68/Roncevaux_by_Carle_Vernet.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5c/Carlomagno_roldan.jpg",
+      descImg:
+        "Charlemagne pleurant les morts de la bataille ; enluminure du XIVe siècle",
       date: "15 août 778",
       description:
         "La bataille de Roncevaux a eu lieu le 15 août 778 dans les Pyrénées, en Espagne. Elle oppose l'arrière-garde de l'armée de Charlemagne, qui était en train de repartir de la péninsule ibérique après une campagne militaire, aux troupes basques.",
@@ -22,7 +25,9 @@ export const battles = {
       id: "3",
       name: "Bataille d'Hastings",
       imageLink:
-        "https://upload.wikimedia.org/wikipedia/commons/9/98/Bayeux_Tapestry_scene51_Harold_death.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bayeux_horses_boats.jpg",
+      imgDesc:
+        "Les Normands font traverser la Manche à leurs chevaux, sur la Tapisserie de Bayeux",
       date: "14 octobre 1066",
       description:
         "La bataille d'Hastings est une bataille décisive de l'histoire de l'Angleterre qui a eu lieu le 14 octobre 1066 près de la ville de Hastings, en Angleterre. Elle oppose l'armée anglo-saxonne du roi Harold II aux troupes normandes de Guillaume le Conquérant.",
@@ -31,7 +36,9 @@ export const battles = {
       id: "4",
       name: "Bataille de Bouvines",
       imageLink:
-        "https://upload.wikimedia.org/wikipedia/commons/3/3b/Battle_of_Bouvines_%281214%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8a/Le_Petit_Journal_-_Philippe-Auguste_%C3%A0_Bouvines.jpg",
+      imgDesc:
+        "« Philippe-Auguste à Bouvines », illustration publiée dans le supplément illustré du Petit Journal, 26 juillet 1914.",
       date: "27 juillet 1214",
       description:
         "La bataille de Bouvines est un affrontement militaire majeur qui a eu lieu le 27 juillet 1214 près de la ville de Bouvines, en France. Elle oppose les armées du roi de France Philippe Auguste à une coalition composée notamment de l'empereur du Saint-Empire Romain Germanique, d'une partie des barons anglais et du comte de Flandre.",
