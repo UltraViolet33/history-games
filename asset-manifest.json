@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/History-Games/static/css/main.6e798929.css",
+    "main.css": "/History-Games/static/css/main.c7c81dfb.css",
     "main.js": "/History-Games/static/js/main.888e60b2.js",
     "index.html": "/History-Games/index.html",
-    "main.6e798929.css.map": "/History-Games/static/css/main.6e798929.css.map",
+    "main.c7c81dfb.css.map": "/History-Games/static/css/main.c7c81dfb.css.map",
     "main.888e60b2.js.map": "/History-Games/static/js/main.888e60b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e798929.css",
+    "static/css/main.c7c81dfb.css",
     "static/js/main.888e60b2.js"
   ]
 }
