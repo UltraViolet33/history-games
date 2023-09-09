@@ -1,3 +1,24 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #282828;
+    --text-color: #d5d5d5;
+    --good-index: #006400;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #eeeeee;
+    --text-color: #1a1a1a;
+    --good-index: lightgreen;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 .navigation {
   height: 60px;
   width: 100%;
@@ -5,7 +26,7 @@
   align-items: center;
   position: relative;
   padding: 0.5rem 0rem;
-  background-color: #fff;
+  background-color: --background-color;
   color: black;
   box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
@@ -35,7 +56,8 @@
   text-decoration: none;
   display: block;
   width: 100%;
-  color: black;
+  color: var(--text-color);
+
   cursor: pointer;
 }
 
@@ -76,7 +98,7 @@
     flex-direction: column;
     width: 100%;
     height: calc(100vh - 77px);
-    background-color: white;
+    background-color: var(--background-color);
     border-top: 1px solid black;
   }
 
@@ -86,7 +108,8 @@
   }
 
   .navigation-menu li a {
-    color: black;
+    color: var(--text-color);
+
     width: 100%;
     padding: 1.5rem 0;
   }
@@ -118,6 +141,7 @@
   width: 650px;
   border: 1px solid lightgrey;
   border-radius: 2px;
+  background-color: var(--background-color);
 }
 
 .padding {
@@ -125,11 +149,11 @@
 }
 
 .is-dragging {
-  background-color: skyblue;
+  /* background-color: skyblue; */
 }
 
 .is-not-dragging {
-  background-color: white;
+  /* background-color: white; */
 }
 
 .element-container {
@@ -140,15 +164,15 @@
   display: flex;
   flex-direction: column;
   min-height: 60px;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .is-dragged {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 }
 
 .element-good-index {
-  background-color: lightgreen;
+  background-color: var(--good-index);
 }
 
 .element-header {
