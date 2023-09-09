@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { KINGS, QUEENS, BATTLES } from "../constants";
+import { KINGS, QUEENS, BATTLES, WRITERS } from "../constants";
 
 export const Header = ({ setData }) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -53,6 +53,15 @@ export const Header = ({ setData }) => {
                 setIsNavExpanded(false);
               }}>
               Batailles de France
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                setData(WRITERS);
+                setIsNavExpanded(false);
+              }}>
+              Ecrivains
             </a>
           </li>
         </ul>

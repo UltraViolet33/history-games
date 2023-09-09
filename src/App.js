@@ -5,8 +5,9 @@ import { Header } from "./components/Header";
 import { Column } from "./components/Column";
 import { queens } from "./data/queens";
 import { kings } from "./data/kings";
-import { KINGS, QUEENS, BATTLES } from "./constants";
+import { KINGS, QUEENS, BATTLES, WRITERS } from "./constants";
 import { battles } from "./data/battles";
+import { writers } from "./data/writers";
 import "./App.css";
 
 export const App = () => {
@@ -20,6 +21,8 @@ export const App = () => {
       setData(queens);
     } else if (data === BATTLES) {
       setData(battles);
+    }  else if (data === WRITERS) {
+      setData(writers);
     }
   };
 
