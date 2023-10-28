@@ -6,7 +6,11 @@ export const Element = ({ element, index }) => {
   const [isTransition, setTransition] = useState(false);
   const [isDisplayed, setIsDisplayed] = useState(false);
 
-  const showInfo = element => {
+  const altImgText = `Wikipedia image of ${element.name} `;
+
+  console.log(altImgText);
+
+  const showInfo = (element) => {
     if (element.isGoodIndex) {
       if (isDisplayed) {
         setTransition(false);
@@ -40,7 +44,8 @@ export const Element = ({ element, index }) => {
           }
           {...provided.dragHandleProps}
           {...provided.draggableProps}
-          ref={provided.innerRef}>
+          ref={provided.innerRef}
+        >
           <div className="element-header">
             <div className="element-name">{element.name}</div>
             <div className="expand-div" onClick={() => showInfo(element)}>
@@ -62,9 +67,10 @@ export const Element = ({ element, index }) => {
                 : isDisplayed && !isTransition
                 ? "info-container info-container-is-displayed"
                 : "info-container"
-            }>
+            }
+          >
             <h2>{element.date}</h2>
-            <img src={element.imageLink} width="256" />
+            <img src={element.imageLink} width="256" alt={altImgText} />
             <p className="description">{element.description}</p>
           </div>
         </div>
