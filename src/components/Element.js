@@ -2,12 +2,16 @@ import { Draggable } from "react-beautiful-dnd";
 import { useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-export const Character = ({ character, index }) => {
+export const Element = ({ element, index }) => {
   const [isTransition, setTransition] = useState(false);
   const [isDisplayed, setIsDisplayed] = useState(false);
 
-  const showInfo = character => {
-    if (character.isGoodIndex) {
+  const altImgText = `Wikipedia image of ${element.name} `;
+
+  console.log(altImgText);
+
+  const showInfo = (element) => {
+    if (element.isGoodIndex) {
       if (isDisplayed) {
         setTransition(false);
         setTimeout(() => {
@@ -25,26 +29,27 @@ export const Character = ({ character, index }) => {
   useEffect(() => {
     setIsDisplayed(false);
     setTransition(false);
-  }, [character]);
+  }, [element]);
 
   return (
-    <Draggable draggableId={character.id} index={index}>
+    <Draggable draggableId={element.id} index={index}>
       {(provided, snapshot) => (
         <div
           className={
             snapshot.isDragging
-              ? "is-dragged character-container"
-              : character.isGoodIndex
-              ? "character-good-index character-container"
-              : "character-container"
+              ? "is-dragged element-container"
+              : element.isGoodIndex
+              ? "element-good-index element-container"
+              : "element-container"
           }
           {...provided.dragHandleProps}
           {...provided.draggableProps}
-          ref={provided.innerRef}>
-          <div className="character-header">
-            <div className="character-name">{character.name}</div>
-            <div className="expand-div" onClick={() => showInfo(character)}>
-              {character.isGoodIndex ? (
+          ref={provided.innerRef}
+        >
+          <div className="element-header">
+            <div className="element-name">{element.name}</div>
+            <div className="expand-div" onClick={() => showInfo(element)}>
+              {element.isGoodIndex ? (
                 isDisplayed ? (
                   <IoIosArrowUp />
                 ) : (
@@ -62,10 +67,11 @@ export const Character = ({ character, index }) => {
                 : isDisplayed && !isTransition
                 ? "info-container info-container-is-displayed"
                 : "info-container"
-            }>
-            <h2>{character.date}</h2>
-            <img src={character.imageLink} width="256" />
-            <p className="description">{character.description}</p>
+            }
+          >
+            <h2>{element.date}</h2>
+            <img src={element.imageLink} width="256" alt={altImgText} />
+            <p className="description">{element.description}</p>
           </div>
         </div>
       )}

@@ -5,37 +5,43 @@ import { Header } from "./components/Header";
 import { Column } from "./components/Column";
 import { queens } from "./data/queens";
 import { kings } from "./data/kings";
+import { KINGS, QUEENS, BATTLES, WRITERS } from "./constants";
+import { battles } from "./data/battles";
+import { writers } from "./data/writers";
 import "./App.css";
 
 export const App = () => {
-  console.log("ok");
   const [gameWon, setGameWon] = useState(false);
   const [data, setData] = useState(kings);
 
   const setStateData = data => {
-    if (data === "kings") {
+    if (data === KINGS) {
       setData(kings);
-    } else if (data === "queens") {
+    } else if (data === QUEENS) {
       setData(queens);
+    } else if (data === BATTLES) {
+      setData(battles);
+    }  else if (data === WRITERS) {
+      setData(writers);
     }
   };
 
-  const newCharacters = () => {
-    const characters = {};
-    for (const [key, value] of Object.entries(data.characters)) {
-      characters[key] = { ...value, isGoodIndex: false };
+  const newListElements = () => {
+    const elements = {};
+    for (const [key, value] of Object.entries(data.elements)) {
+      elements[key] = { ...value, isGoodIndex: false };
     }
-    return characters;
+    return elements;
   };
 
   const [state, setState] = useState({
     ...data,
-    characters: newCharacters(),
+    elements: newListElements(),
     columns: {
       ...data.columns,
       "column-1": {
         ...data.columns["column-1"],
-        charactersIds: data.columns["column-1"].charactersIds.sort(
+        elementsIds: data.columns["column-1"].elementsIds.sort(
           (a, b) => 0.5 - Math.random()
         ),
       },
@@ -46,12 +52,12 @@ export const App = () => {
     setGameWon(false);
     setState({
       ...data,
-      characters: newCharacters(),
+      elements: newListElements(),
       columns: {
         ...data.columns,
         "column-1": {
           ...data.columns["column-1"],
-          charactersIds: data.columns["column-1"].charactersIds.sort(
+          elementsIds: data.columns["column-1"].elementsIds.sort(
             (a, b) => 0.5 - Math.random()
           ),
         },
@@ -74,29 +80,29 @@ export const App = () => {
     }
 
     const column = state.columns[source.droppableId];
-    const newCharactersIds = Array.from(column.charactersIds);
+    const newElementsIds = Array.from(column.elementsIds);
 
-    newCharactersIds.splice(source.index, 1);
-    newCharactersIds.splice(destination.index, 0, draggableId);
+    newElementsIds.splice(source.index, 1);
+    newElementsIds.splice(destination.index, 0, draggableId);
 
     const newColumn = {
       ...column,
-      charactersIds: newCharactersIds,
+      elementsIds: newElementsIds,
     };
 
-    const newCharacters = state.characters;
+    const newElements = state.elements;
 
-    for (const index in newCharactersIds) {
-      if (index == newCharactersIds[index] - 1) {
-        newCharacters[newCharactersIds[index]].isGoodIndex = true;
+    for (const index in newElementsIds) {
+      if (index == newElementsIds[index] - 1) {
+        newElements[newElementsIds[index]].isGoodIndex = true;
       } else {
-        newCharacters[newCharactersIds[index]].isGoodIndex = false;
+        newElements[newElementsIds[index]].isGoodIndex = false;
       }
     }
 
     const newState = {
       ...state,
-      characters: newCharacters,
+      elements: newElements,
       columns: {
         ...state.columns,
         [newColumn.id]: newColumn,
@@ -113,8 +119,8 @@ export const App = () => {
   };
 
   const checkWon = newColumn => {
-    for (const index in newColumn.charactersIds) {
-      if (index != newColumn.charactersIds[index] - 1) {
+    for (const index in newColumn.elementsIds) {
+      if (index != newColumn.elementsIds[index] - 1) {
         return false;
       }
     }
@@ -125,10 +131,13 @@ export const App = () => {
     <>
       <Header setData={setStateData} />
       <div className="top">
-        <h2>Remets les personnages historiques dans le bon ordre !</h2>
+        <h2>
+          Remets les personnages ou les batailles historiques dans le bon ordre
+          !
+        </h2>
         <p>
-          Drag and drop les personnages dans le bon ordre ! La case devient
-          verte si elle est à la bonne place.
+          Drag and drop les cases dans l'ordre chronologique ! La case
+          devient verte si elle est à la bonne place.
         </p>
         <p>
           Si un <IoIosArrowDown /> s'affiche une description est disponible.
@@ -139,10 +148,10 @@ export const App = () => {
         <DragDropContext onDragEnd={onDragEnd}>
           {state.columnOrder.map(columnId => {
             const column = state.columns[columnId];
-            const characters = column.charactersIds.map(
-              characterId => state.characters[characterId]
+            const elements = column.elementsIds.map(
+              characterId => state.elements[characterId]
             );
-            return <Column key={column.id} column={column} list={characters} />;
+            return <Column key={column.id} column={column} list={elements} />;
           })}
         </DragDropContext>
       </div>

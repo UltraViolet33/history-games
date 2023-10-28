@@ -1,5 +1,5 @@
 export const kings = {
-  characters: {
+  elements: {
     1: {
       id: "1",
       name: "Clovis Ier",
@@ -142,7 +142,7 @@ export const kings = {
     "column-1": {
       id: "column-1",
       title: "Les Principaux Rois de France",
-      charactersIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      elementsIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
     },
   },
   columnOrder: ["column-1"],

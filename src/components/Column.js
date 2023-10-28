@@ -1,4 +1,4 @@
-import { Character } from "./Character";
+import { Element } from "./Element";
 import { Droppable } from "react-beautiful-dnd";
 
 export const Column = ({ column, list }) => {
@@ -15,12 +15,8 @@ export const Column = ({ column, list }) => {
             }
             ref={provided.innerRef}
             {...provided.droppableProps}>
-            {list.map((character, index) => (
-              <Character
-                key={character.id}
-                character={character}
-                index={index}
-              />
+            {list.map((element, index) => (
+              <Element key={element.id} element={element} index={index} />
             ))}
             {provided.placeholder}
           </div>

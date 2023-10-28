@@ -1,13 +1,11 @@
 import { useState } from "react";
+import { KINGS, QUEENS, BATTLES, WRITERS } from "../constants";
 
 export const Header = ({ setData }) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
-        History Games
-      </a>
       <button
         className="hamburger"
         onClick={() => {
@@ -33,7 +31,7 @@ export const Header = ({ setData }) => {
           <li>
             <a
               onClick={() => {
-                setData("kings");
+                setData(KINGS);
                 setIsNavExpanded(false);
               }}>
               Rois de France
@@ -42,10 +40,28 @@ export const Header = ({ setData }) => {
           <li>
             <a
               onClick={() => {
-                setData("queens");
+                setData(QUEENS);
                 setIsNavExpanded(false);
               }}>
               Reines de France
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                setData(BATTLES);
+                setIsNavExpanded(false);
+              }}>
+              Batailles de France
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                setData(WRITERS);
+                setIsNavExpanded(false);
+              }}>
+              Ecrivains
             </a>
           </li>
         </ul>
