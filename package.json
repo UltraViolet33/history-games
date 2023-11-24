@@ -1,7 +1,7 @@
 {
   "name": "history-games",
   "version": "0.1.0",
-  "homepage": "https://github-UltraViolet33.github.io/History-Games",
+  "homepage": "https://github-UltraViolet33.github.io/history-games",
   "private": true,
   "dependencies": {
     "@atlaskit/css-reset": "^6.4.0",
